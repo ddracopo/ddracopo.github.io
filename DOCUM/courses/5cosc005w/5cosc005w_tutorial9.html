@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-03-25 Thu 17:59 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>5COSC005W - Tutorial 9 Exercises</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">5COSC005W - Tutorial 9 Exercises</h1>
+<p>
+As part of this tutorial for this week, you should complete <b>ALL</b> the
+tasks described in the following links and specifications: (<b>make sure that you ask questions to your tutor for anything that you do not understand or if
+you are stuck at any point</b>):
+</p>
+
+<div id="outline-container-orgd8c4388" class="outline-2">
+<h2 id="orgd8c4388"><span class="section-number-2">1</span> Options Menus</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+a) Implement an Android application which contains an <i>actions overflow
+  menu</i> with two entries: <b>Settings</b> and <b>Options2</b> which when
+  selected they create a pop up <code>Toast</code> with their name:
+</p>
+
+<div id="orgf3cc35f" class="figure">
+<p><img src="./tutorial9a.png" alt="tutorial9a.png" width="20%" height="20%" />
+</p>
+</div>
+
+<p>
+b) Add a Favourites icon in the main app bar options menu (not the
+   overflow menu) which is always displayed and when clicked in
+   displays a toast message: 
+</p>
+
+
+<div id="orga926e01" class="figure">
+<p><img src="./tutorial9b.png" alt="tutorial9b.png" width="20%" height="20%" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb7ee154" class="outline-2">
+<h2 id="orgb7ee154"><span class="section-number-2">2</span> Contextual Menus</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Extend the application so that it contains a textview with a
+contectual menu containing 2 entries <b>Edit</b> and <b>Share</b>:
+</p>
+
+
+<div id="orgc673790" class="figure">
+<p><img src="./tutorial9c.png" alt="tutorial9c.png" width="20%" height="20%" />
+</p>
+</div>
+
+
+<p>
+Choosing option <code>Edit</code> should display a dialog with 2 options:
+</p>
+
+<div id="org53e5b39" class="figure">
+<p><img src="./tutorial9d.png" alt="tutorial9d.png" width="20%" height="20%" />
+</p>
+</div>
+
+<p>
+Choosing option <code>Share</code> should send some random text to an application
+that the user can choose from (hint: use an impliciti intend with an
+<b>ACTION<sub>SEND</sub></b>).
+</p>
+
+<div id="org093df58" class="figure">
+<p><img src="./tutorial9e.png" alt="tutorial9e.png" width="20%" height="20%" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org70b3c09" class="outline-2">
+<h2 id="org70b3c09"><span class="section-number-2">3</span> Contextual Action Bars</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Modify the application so that the textview created uses a contextual
+action bar instead displaying an edit icon which when selected it
+displays the same dialog to the user as the one displayed with the
+<b>Edit</b> entry above in the implementation of contextual menus:
+</p>
+
+<div id="org13b28a0" class="figure">
+<p><img src="./tutorial9f.png" alt="tutorial9f.png" width="20%" height="20%" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org45f6539" class="outline-2">
+<h2 id="org45f6539"><span class="section-number-2">4</span> Popup Menus</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Add an <code>ImageView</code> in your application so that displays one of the
+images which are included with the assets of Android studio as in the
+image above. The image view should be associated with a popup window
+displaying 2 user options <b>Forwards</b> and <b>ReplyAll</b> (they do not need
+to do anything once chosen):
+</p>
+
+<div id="org4e1c75a" class="figure">
+<p><img src="./tutorial9g.png" alt="tutorial9g.png" width="20%" height="20%" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org893b3e6" class="outline-2">
+<h2 id="org893b3e6"><span class="section-number-2">5</span> The DatePicker</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Add a button to the application so that when it is clicked it
+displays a <code>DatePickerDialog</code>.
+</p>
+
+<div id="org3846fbc" class="figure">
+<p><img src="./tutorial9h.png" alt="tutorial9h.png" width="20%" height="20%" />
+</p>
+</div>
+
+<p>
+When the user clicks on the <b>OK</b> button a <code>Toast</code> is displayed with
+the selected date in the format <code>day/month/year</code>, e.g. <code>14/3/2021</code>:
+</p>
+
+<div id="org3e9b4c0" class="figure">
+<p><img src="./tutorial9i.png" alt="tutorial9i.png" width="20%" height="20%" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org294e92f" class="outline-2">
+<h2 id="org294e92f"><span class="section-number-2">6</span> The TimePicker</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Add a button so that the application displays a <code>TimePickerDialog</code>
+when it is clicked. Once the user picks up a time, a toast with the
+time is displayed.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgc8f3d54" class="outline-2">
+<h2 id="orgc8f3d54"><span class="section-number-2">7</span> Solutions</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+The main activity <code>MainActivity.java</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #a020f0;">package</span> uk.ac.westminster.<span style="color: #008b8b;">menustest</span>;
+
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">content</span>.<span style="color: #228b22;">DialogInterface</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">content</span>.<span style="color: #228b22;">Intent</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">os</span>.<span style="color: #228b22;">Bundle</span>;
+
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">util</span>.<span style="color: #228b22;">Log</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">view</span>.<span style="color: #228b22;">ActionMode</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">view</span>.<span style="color: #228b22;">ContextMenu</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">view</span>.<span style="color: #228b22;">Menu</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">view</span>.<span style="color: #228b22;">MenuItem</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">view</span>.<span style="color: #228b22;">View</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">widget</span>.<span style="color: #228b22;">ImageButton</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">widget</span>.<span style="color: #228b22;">PopupMenu</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">widget</span>.<span style="color: #228b22;">TextView</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">widget</span>.<span style="color: #228b22;">Toast</span>;
+
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">androidx</span>.<span style="color: #008b8b;">appcompat</span>.<span style="color: #008b8b;">app</span>.<span style="color: #228b22;">AlertDialog</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">androidx</span>.<span style="color: #008b8b;">appcompat</span>.<span style="color: #008b8b;">app</span>.<span style="color: #228b22;">AppCompatActivity</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">androidx</span>.<span style="color: #008b8b;">fragment</span>.<span style="color: #008b8b;">app</span>.<span style="color: #228b22;">DialogFragment</span>;
+
+<span style="color: #a020f0;">public</span> <span style="color: #a020f0;">class</span> <span style="color: #228b22;">MainActivity</span> <span style="color: #a020f0;">extends</span> <span style="color: #228b22;">AppCompatActivity</span> {
+    <span style="color: #228b22;">TextView</span> <span style="color: #a0522d;">tv</span>;
+    <span style="color: #228b22;">ImageButton</span> <span style="color: #a0522d;">bt1</span>;
+    <span style="color: #228b22;">ActionMode</span> <span style="color: #a0522d;">mActionMode</span>;
+    <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">view</span>.<span style="color: #008b8b;">ActionMode</span>.<span style="color: #228b22;">Callback</span> <span style="color: #a0522d;">mActionModeCallback</span>;
+
+    <span style="color: #008b8b;">@Override</span>
+    <span style="color: #a020f0;">protected</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">onCreate</span>(<span style="color: #228b22;">Bundle</span> <span style="color: #a0522d;">savedInstanceState</span>) {
+        <span style="color: #a020f0;">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+        mActionModeCallback = <span style="color: #a020f0;">new</span> <span style="color: #008b8b;">ActionMode</span>.<span style="color: #228b22;">Callback</span>() {
+            <span style="color: #008b8b;">@Override</span>
+            <span style="color: #a020f0;">public</span> <span style="color: #228b22;">boolean</span> <span style="color: #0000ff;">onCreateActionMode</span>(<span style="color: #228b22;">ActionMode</span> <span style="color: #a0522d;">actionMode</span>, <span style="color: #228b22;">Menu</span> <span style="color: #a0522d;">menu</span>) {
+                actionMode.getMenuInflater().inflate(R.menu.menu_context_bar, menu);
+
+                <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">true</span>;
+            }
+
+            <span style="color: #008b8b;">@Override</span>
+            <span style="color: #a020f0;">public</span> <span style="color: #228b22;">boolean</span> <span style="color: #0000ff;">onPrepareActionMode</span>(<span style="color: #228b22;">ActionMode</span> <span style="color: #a0522d;">actionMode</span>, <span style="color: #228b22;">Menu</span> <span style="color: #a0522d;">menu</span>) {
+                <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">false</span>;
+            }
+
+            <span style="color: #008b8b;">@Override</span>
+            <span style="color: #a020f0;">public</span> <span style="color: #228b22;">boolean</span> <span style="color: #0000ff;">onActionItemClicked</span>(<span style="color: #228b22;">ActionMode</span> <span style="color: #a0522d;">actionMode</span>, <span style="color: #228b22;">MenuItem</span> <span style="color: #a0522d;">menuItem</span>) {
+                <span style="color: #a020f0;">switch</span> (menuItem.getItemId()) {
+                    <span style="color: #a020f0;">case</span> R.id.edit_option:
+                        editNote();
+                        actionMode.finish();
+                        <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">true</span>;
+                    <span style="color: #a020f0;">default</span>:
+                        <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">false</span>;
+                }
+            }
+
+            <span style="color: #008b8b;">@Override</span>
+            <span style="color: #a020f0;">public</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">onDestroyActionMode</span>(<span style="color: #228b22;">ActionMode</span> <span style="color: #a0522d;">actionMode</span>) {
+                mActionMode = <span style="color: #008b8b;">null</span>;
+            }
+        };
+
+        tv = findViewById(R.id.tv);
+        registerForContextMenu(tv);
+
+        bt1 = findViewById(R.id.button_popup);
+        bt1.setOnClickListener(<span style="color: #a020f0;">new</span> <span style="color: #008b8b;">View</span>.<span style="color: #228b22;">OnClickListener</span>() {
+            <span style="color: #008b8b;">@Override</span>
+            <span style="color: #a020f0;">public</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">onClick</span>(<span style="color: #228b22;">View</span> <span style="color: #a0522d;">view</span>) {
+                <span style="color: #228b22;">PopupMenu</span> <span style="color: #a0522d;">pop</span> = <span style="color: #a020f0;">new</span> <span style="color: #228b22;">PopupMenu</span>(MainActivity.<span style="color: #a020f0;">this</span>, bt1);
+                pop.getMenuInflater().inflate(R.menu.menu_popup, pop.getMenu());
+                pop.setOnMenuItemClickListener(<span style="color: #a020f0;">new</span> <span style="color: #008b8b;">PopupMenu</span>.<span style="color: #228b22;">OnMenuItemClickListener</span>() {
+                    <span style="color: #008b8b;">@Override</span>
+                    <span style="color: #a020f0;">public</span> <span style="color: #228b22;">boolean</span> <span style="color: #0000ff;">onMenuItemClick</span>(<span style="color: #228b22;">MenuItem</span> <span style="color: #a0522d;">menuItem</span>) {
+                        <span style="color: #a020f0;">switch</span> (menuItem.getItemId()) {
+                            <span style="color: #a020f0;">case</span> R.id.forward:
+                                <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">true</span>;
+                            <span style="color: #a020f0;">default</span>:
+                                <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">false</span>;
+                        }
+                    }
+                });
+                pop.show();
+            }
+        });
+
+
+        <span style="color: #8b2252;">/***  Comment out this segment of code to use a contextual menu instead of the</span>
+<span style="color: #8b2252;">         *    contectual action bar *****/</span>
+        tv.setOnLongClickListener(<span style="color: #a020f0;">new</span> <span style="color: #008b8b;">View</span>.<span style="color: #228b22;">OnLongClickListener</span>() {
+            <span style="color: #008b8b;">@Override</span>
+            <span style="color: #a020f0;">public</span> <span style="color: #228b22;">boolean</span> <span style="color: #0000ff;">onLongClick</span>(<span style="color: #228b22;">View</span> <span style="color: #a0522d;">view</span>) {
+                <span style="color: #a020f0;">if</span> (mActionMode != <span style="color: #008b8b;">null</span>)
+                    <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">false</span>;
+                <span style="color: #a020f0;">else</span> {
+                    MainActivity.<span style="color: #a020f0;">this</span>.startActionMode(mActionModeCallback);
+
+                    <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">true</span>;
+                }
+            }
+        });   <span style="color: #8b2252;">/*** segment of code for contextual action bar ends here ***/</span>
+
+    }
+
+
+    <span style="color: #008b8b;">@Override</span>
+    <span style="color: #a020f0;">public</span> <span style="color: #228b22;">boolean</span> <span style="color: #0000ff;">onCreateOptionsMenu</span>(<span style="color: #228b22;">Menu</span> <span style="color: #a0522d;">menu</span>) {
+        <span style="color: #a020f0;">super</span>.onCreateOptionsMenu(menu);
+
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">true</span>;
+
+    }
+
+    <span style="color: #008b8b;">@Override</span>
+    <span style="color: #a020f0;">public</span> <span style="color: #228b22;">boolean</span> <span style="color: #0000ff;">onOptionsItemSelected</span>(<span style="color: #228b22;">MenuItem</span> <span style="color: #a0522d;">item</span>) {
+        <span style="color: #a020f0;">switch</span> (item.getItemId()) {
+            <span style="color: #a020f0;">case</span> R.id.option_favourites:
+                showFavourites();
+                <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">true</span>;
+            <span style="color: #a020f0;">case</span> R.id.option_settings:
+                showSettings();
+                <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">true</span>;
+            <span style="color: #a020f0;">default</span>:
+                <span style="color: #a020f0;">return</span> <span style="color: #a020f0;">super</span>.onOptionsItemSelected(item);
+        }
+    }
+
+
+    <span style="color: #228b22;">void</span> <span style="color: #0000ff;">showFavourites</span>() {
+        <span style="color: #228b22;">Toast</span> <span style="color: #a0522d;">t</span> = Toast.makeText(<span style="color: #a020f0;">this</span>, <span style="color: #8b2252;">"Favourites shown"</span>, <span style="color: #008b8b;">Toast</span>.LENGTH_SHORT);
+        t.show();
+    }
+
+    <span style="color: #228b22;">void</span> <span style="color: #0000ff;">showSettings</span>() {
+        <span style="color: #228b22;">Toast</span> <span style="color: #a0522d;">t</span> = Toast.makeText(<span style="color: #a020f0;">this</span>, <span style="color: #8b2252;">"Settings shown"</span>, <span style="color: #008b8b;">Toast</span>.LENGTH_SHORT);
+        t.show();
+    }
+
+    <span style="color: #008b8b;">@Override</span>
+    <span style="color: #a020f0;">public</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">onCreateContextMenu</span>(<span style="color: #228b22;">ContextMenu</span> <span style="color: #a0522d;">menu</span>, <span style="color: #228b22;">View</span> <span style="color: #a0522d;">v</span>, <span style="color: #008b8b;">ContextMenu</span>.<span style="color: #228b22;">ContextMenuInfo</span> <span style="color: #a0522d;">menuInfo</span>) {
+        <span style="color: #a020f0;">super</span>.onCreateContextMenu(menu, v, menuInfo);
+
+        getMenuInflater().inflate(R.menu.menu_context, menu);
+
+    }
+
+    <span style="color: #008b8b;">@Override</span>
+    <span style="color: #a020f0;">public</span> <span style="color: #228b22;">boolean</span> <span style="color: #0000ff;">onContextItemSelected</span>(<span style="color: #228b22;">MenuItem</span> <span style="color: #a0522d;">item</span>) {
+        <span style="color: #a020f0;">if</span> (item.getItemId() == R.id.context_edit) {
+            editNote();
+            <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">true</span>;
+        } <span style="color: #a020f0;">else</span> <span style="color: #a020f0;">if</span> (item.getItemId() == R.id.context_share) {
+            shareNote();
+            <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">true</span>;
+        } <span style="color: #a020f0;">else</span>
+            <span style="color: #a020f0;">return</span> <span style="color: #a020f0;">super</span>.onContextItemSelected(item);
+    }
+
+    <span style="color: #228b22;">void</span> <span style="color: #0000ff;">editNote</span>() {
+        <span style="color: #008b8b;">AlertDialog</span>.<span style="color: #228b22;">Builder</span> <span style="color: #a0522d;">dialog</span> = <span style="color: #a020f0;">new</span> <span style="color: #008b8b;">AlertDialog</span>.<span style="color: #228b22;">Builder</span>(<span style="color: #a020f0;">this</span>);
+        dialog.setTitle(<span style="color: #8b2252;">"Edit choice22727"</span>);
+        dialog.setPositiveButton(<span style="color: #8b2252;">"OK"</span>, <span style="color: #a020f0;">new</span> <span style="color: #008b8b;">DialogInterface</span>.<span style="color: #228b22;">OnClickListener</span>() {
+            <span style="color: #008b8b;">@Override</span>
+            <span style="color: #a020f0;">public</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">onClick</span>(<span style="color: #228b22;">DialogInterface</span> <span style="color: #a0522d;">dialogInterface</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>) {
+
+            }
+        });
+        dialog.setNegativeButton(<span style="color: #8b2252;">"Cancel"</span>, <span style="color: #a020f0;">new</span> <span style="color: #008b8b;">DialogInterface</span>.<span style="color: #228b22;">OnClickListener</span>() {
+            <span style="color: #008b8b;">@Override</span>
+            <span style="color: #a020f0;">public</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">onClick</span>(<span style="color: #228b22;">DialogInterface</span> <span style="color: #a0522d;">dialogInterface</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>) {
+
+            }
+        });
+        dialog.show();
+    }
+
+    <span style="color: #228b22;">void</span> <span style="color: #0000ff;">shareNote</span>() {
+        <span style="color: #228b22;">Intent</span> <span style="color: #a0522d;">i</span> = <span style="color: #a020f0;">new</span> <span style="color: #228b22;">Intent</span>(<span style="color: #008b8b;">Intent</span>.ACTION_SEND);
+        i.setType(<span style="color: #8b2252;">"text/plain"</span>);
+        i.putExtra(<span style="color: #008b8b;">Intent</span>.EXTRA_TEXT, <span style="color: #8b2252;">"gsutytygsg"</span>);
+        i = Intent.createChooser(i, <span style="color: #8b2252;">"Report from app"</span>);
+        startActivity(i);
+    }
+
+    <span style="color: #a020f0;">public</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">onDateClick</span>(<span style="color: #228b22;">View</span> <span style="color: #a0522d;">view</span>) {
+        <span style="color: #228b22;">DialogFragment</span> <span style="color: #a0522d;">df</span> = <span style="color: #a020f0;">new</span> <span style="color: #228b22;">DatePickerFragment</span>();
+        df.show(getSupportFragmentManager(), <span style="color: #8b2252;">"datepicker"</span>);
+    }
+
+    <span style="color: #a020f0;">public</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">showSomething</span>(<span style="color: #228b22;">int</span> <span style="color: #a0522d;">year</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">month</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">day</span>) {
+        <span style="color: #228b22;">Toast</span> <span style="color: #a0522d;">t</span> = Toast.makeText(<span style="color: #a020f0;">this</span>, <span style="color: #8b2252;">""</span> + day + <span style="color: #8b2252;">"/"</span> + month + <span style="color: #8b2252;">"/"</span> + year, <span style="color: #008b8b;">Toast</span>.LENGTH_SHORT);
+        t.show();
+    }
+}
+</pre>
+</div>
+
+<p>
+The layout file <code>activity_main.xml</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-xml">&lt;?<span style="color: #a020f0;">xml</span> <span style="color: #8b2252;">version="1.0" encoding="utf-8"</span>?&gt;
+&lt;<span style="color: #0000ff;">LinearLayout</span> <span style="color: #483d8b;">xmlns</span>:<span style="color: #a0522d;">android</span>=<span style="color: #8b2252;">"http://schemas.android.com/apk/res/android"</span>
+    <span style="color: #483d8b;">xmlns</span>:<span style="color: #a0522d;">tools</span>=<span style="color: #8b2252;">"http://schemas.android.com/tools"</span>
+    <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">layout_width</span>=<span style="color: #8b2252;">"match_parent"</span>
+    <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">layout_height</span>=<span style="color: #8b2252;">"match_parent"</span>
+    <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">orientation</span>=<span style="color: #8b2252;">"vertical"</span>
+    <span style="color: #483d8b;">tools</span>:<span style="color: #a0522d;">context</span>=<span style="color: #8b2252;">".MainActivity"</span>&gt;
+
+    &lt;<span style="color: #0000ff;">TextView</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">id</span>=<span style="color: #8b2252;">"@+id/tv"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">layout_width</span>=<span style="color: #8b2252;">"wrap_content"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">layout_height</span>=<span style="color: #8b2252;">"wrap_content"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">textSize</span>=<span style="color: #8b2252;">"24sp"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">layout_gravity</span>=<span style="color: #8b2252;">"center"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">text</span>=<span style="color: #8b2252;">"TextView with a Contextual menu"</span> /&gt;
+
+    &lt;<span style="color: #0000ff;">ImageButton</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">id</span>=<span style="color: #8b2252;">"@+id/button_popup"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">layout_width</span>=<span style="color: #8b2252;">"wrap_content"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">layout_height</span>=<span style="color: #8b2252;">"wrap_content"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">layout_gravity</span>=<span style="color: #8b2252;">"center"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">src</span>=<span style="color: #8b2252;">"@drawable/ic_action_popup"</span> /&gt;
+    &lt;<span style="color: #0000ff;">Button</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">layout_width</span>=<span style="color: #8b2252;">"wrap_content"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">layout_height</span>=<span style="color: #8b2252;">"wrap_content"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">layout_gravity</span>=<span style="color: #8b2252;">"center"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">text</span>=<span style="color: #8b2252;">"Click me"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">textSize</span>=<span style="color: #8b2252;">"24sp"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">onClick</span>=<span style="color: #8b2252;">"onDateClick"</span>/&gt;
+&lt;/<span style="color: #0000ff;">LinearLayout</span>&gt;
+</pre>
+</div>
+
+<p>
+The menu files are below (they need to be placed under the <code>res/menu/</code>
+directory.
+</p>
+
+<p>
+The <code>menu_main.xml</code> file:
+</p>
+<div class="org-src-container">
+<pre class="src src-xml">&lt;?<span style="color: #a020f0;">xml</span> <span style="color: #8b2252;">version="1.0" encoding="utf-8"</span>?&gt;
+&lt;<span style="color: #0000ff;">menu</span>
+      <span style="color: #483d8b;">xmlns</span>:<span style="color: #a0522d;">android</span>=<span style="color: #8b2252;">"http://schemas.android.com/apk/res/android"</span>
+      <span style="color: #483d8b;">xmlns</span>:<span style="color: #a0522d;">app</span>=<span style="color: #8b2252;">"http://schemas.android.com/apk/res-auto"</span> &gt;
+    &lt;<span style="color: #0000ff;">item</span> <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">id</span>=<span style="color: #8b2252;">"@+id/option2"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">title</span>=<span style="color: #8b2252;">"Option2"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">orderInCategory</span>=<span style="color: #8b2252;">"90"</span>/&gt;
+    &lt;<span style="color: #0000ff;">item</span> <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">id</span>=<span style="color: #8b2252;">"@+id/option_settings"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">title</span>=<span style="color: #8b2252;">"Settings"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">orderInCategory</span>=<span style="color: #8b2252;">"60"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">icon</span>=<span style="color: #8b2252;">"@drawable/ic_action_settings"</span>/&gt;
+    &lt;<span style="color: #0000ff;">item</span> <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">id</span>=<span style="color: #8b2252;">"@+id/option_favourites"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">title</span>=<span style="color: #8b2252;">"Favourites"</span>
+        <span style="color: #483d8b;">app</span>:<span style="color: #a0522d;">showAsAction</span>=<span style="color: #8b2252;">"ifRoom"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">icon</span>=<span style="color: #8b2252;">"@drawable/ic_favourites"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">orderInCategory</span>=<span style="color: #8b2252;">"30"</span>
+        /&gt;
+&lt;/<span style="color: #0000ff;">menu</span>&gt;
+</pre>
+</div>
+
+
+<p>
+The <code>menu_context</code> file:
+</p>
+<div class="org-src-container">
+<pre class="src src-xml">&lt;?<span style="color: #a020f0;">xml</span> <span style="color: #8b2252;">version="1.0" encoding="utf-8"</span>?&gt;
+&lt;<span style="color: #0000ff;">menu</span> <span style="color: #483d8b;">xmlns</span>:<span style="color: #a0522d;">android</span>=<span style="color: #8b2252;">"http://schemas.android.com/apk/res/android"</span>&gt;
+    &lt;<span style="color: #0000ff;">item</span> <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">id</span>=<span style="color: #8b2252;">"@+id/context_edit"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">title</span>=<span style="color: #8b2252;">"Edit"</span>/&gt;
+    &lt;<span style="color: #0000ff;">item</span> <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">id</span>=<span style="color: #8b2252;">"@+id/context_share"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">title</span>=<span style="color: #8b2252;">"Share"</span> /&gt;
+&lt;/<span style="color: #0000ff;">menu</span>&gt;
+</pre>
+</div>
+
+<p>
+The <code>menu_context_bar.xml</code> file:
+</p>
+<div class="org-src-container">
+<pre class="src src-xml">&lt;?<span style="color: #a020f0;">xml</span> <span style="color: #8b2252;">version="1.0" encoding="utf-8"</span>?&gt;
+&lt;<span style="color: #0000ff;">menu</span> <span style="color: #483d8b;">xmlns</span>:<span style="color: #a0522d;">android</span>=<span style="color: #8b2252;">"http://schemas.android.com/apk/res/android"</span>&gt;
+
+    &lt;<span style="color: #0000ff;">item</span> <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">id</span>=<span style="color: #8b2252;">"@+id/edit_option"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">title</span>=<span style="color: #8b2252;">"Edit"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">icon</span>=<span style="color: #8b2252;">"@drawable/ic_action_edit"</span>/&gt;
+&lt;/<span style="color: #0000ff;">menu</span>&gt;
+</pre>
+</div>
+
+<p>
+The <code>menu_popup.xml</code> file:
+</p>
+<div class="org-src-container">
+<pre class="src src-xml">&lt;?<span style="color: #a020f0;">xml</span> <span style="color: #8b2252;">version="1.0" encoding="utf-8"</span>?&gt;
+&lt;<span style="color: #0000ff;">menu</span> <span style="color: #483d8b;">xmlns</span>:<span style="color: #a0522d;">android</span>=<span style="color: #8b2252;">"http://schemas.android.com/apk/res/android"</span>&gt;
+    &lt;<span style="color: #0000ff;">item</span> <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">id</span>=<span style="color: #8b2252;">"@+id/forward"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">title</span>=<span style="color: #8b2252;">"Forwards"</span> /&gt;
+    &lt;<span style="color: #0000ff;">item</span> <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">id</span>=<span style="color: #8b2252;">"@+id/replyall"</span>
+        <span style="color: #483d8b;">android</span>:<span style="color: #a0522d;">title</span>=<span style="color: #8b2252;">"ReplyAll"</span>/&gt;
+&lt;/<span style="color: #0000ff;">menu</span>&gt;
+</pre>
+</div>
+
+
+<p>
+The <code>DatePickerFragment.java</code> file:
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #a020f0;">package</span> uk.ac.westminster.<span style="color: #008b8b;">menustest</span>;
+
+
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">app</span>.<span style="color: #228b22;">DatePickerDialog</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">app</span>.<span style="color: #228b22;">Dialog</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">os</span>.<span style="color: #228b22;">Bundle</span>;
+
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">widget</span>.<span style="color: #228b22;">DatePicker</span>;
+
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">androidx</span>.<span style="color: #008b8b;">annotation</span>.<span style="color: #228b22;">NonNull</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">androidx</span>.<span style="color: #008b8b;">fragment</span>.<span style="color: #008b8b;">app</span>.<span style="color: #228b22;">DialogFragment</span>;
+
+<span style="color: #8b2252;">/**</span>
+<span style="color: #8b2252;"> * A simple  Fragment subclass.</span>
+<span style="color: #8b2252;"> */</span>
+<span style="color: #a020f0;">public</span> <span style="color: #a020f0;">class</span> <span style="color: #228b22;">DatePickerFragment</span> <span style="color: #a020f0;">extends</span> <span style="color: #228b22;">DialogFragment</span> <span style="color: #a020f0;">implements</span> <span style="color: #008b8b;">DatePickerDialog</span>.<span style="color: #228b22;">OnDateSetListener</span> {
+    <span style="color: #008b8b;">@NonNull</span>
+    <span style="color: #a020f0;">public</span> <span style="color: #228b22;">Dialog</span> <span style="color: #0000ff;">onCreateDialog</span>(<span style="color: #228b22;">Bundle</span> <span style="color: #a0522d;">savedInstanceState</span>) {
+        <span style="color: #a020f0;">return</span> <span style="color: #a020f0;">new</span> <span style="color: #228b22;">DatePickerDialog</span>(getActivity(), <span style="color: #a020f0;">this</span>, 2019, 2, 14);
+    }
+
+    <span style="color: #008b8b;">@Override</span>
+    <span style="color: #a020f0;">public</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">onDateSet</span>(<span style="color: #228b22;">DatePicker</span> <span style="color: #a0522d;">datePicker</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">i1</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">i2</span>) {
+        <span style="color: #228b22;">MainActivity</span> <span style="color: #a0522d;">activity</span> = (<span style="color: #228b22;">MainActivity</span>) getActivity();
+        activity.showSomething(i, i1, i2);
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org1db0fac" class="outline-2">
+<h2 id="org1db0fac"><span class="section-number-2">8</span> Dealing with a TimePicker</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Extend the application so that at the bottom it displays an additional
+buton called <b>Time</b>. The button is associated with a
+<code>TimePickerDialog</code>. When the user selects a time in the dialog, the
+selected time is displayed in a <code>TextView</code> at the bottom of the main
+activity.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org789e353" class="outline-2">
+<h2 id="org789e353"><span class="section-number-2">9</span> Adding new Items in the Options menu.</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Extend the application so that it displays an additional menu item
+(choose an icon of your choice) next to the "Favourites" item. When
+the item is clicked, it should open a browser displaying your favourite
+URL. (<b>Hint</b>: use an implicit intent, something we covered in Week 3).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org69efbb2" class="outline-2">
+<h2 id="org69efbb2"><span class="section-number-2">10</span> Persisting Settings in an Application</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Modify the application so that the <b>Settings</b> option found in the
+overflow menu displays a date dialog picker which then user can use to
+select the date of the birthday of his/her best friend. The date
+should be persisted as part of the application settings (use
+<code>SharedPreferences</code>) so that the next time that the application
+restarts the birthday of the user's best friend is displayed.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

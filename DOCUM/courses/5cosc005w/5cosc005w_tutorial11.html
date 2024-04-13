@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-04-04 Sun 17:41 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>5COSC005W - Tutorial 11 Exercises</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">5COSC005W - Tutorial 11 Exercises</h1>
+<p>
+As part of this tutorial for this week, you will revise the knowlegde
+you obtained for the whole module by creating some new apps. You should complete <b>ALL</b> the
+tasks described in the following links and specifications: 
+</p>
+
+<div id="outline-container-org40bb234" class="outline-2">
+<h2 id="org40bb234"><span class="section-number-2">1</span> A Tic-Tac-Toe Game</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+a) Create a new project and implement the following code (the code is
+adopted from your <code>Reading List</code> from the book <i>Hello Android</i>, by Ed
+Burnette). The program allows the user to play the tic-tac-toe (noughts
+and crosses) game against the computer.  
+</p>
+
+<p>
+The game is played with two players, X (user) and O (computer), who
+take turns marking the spaces in a 3×3 grid. The X player goes
+first. The player who succeeds in placing three respective marks in a
+horizontal, vertical, or diagonal row wins the game (see Figure
+below).
+</p>
+
+
+<div id="org0ef8438" class="figure">
+<p><img src="./tic_tac_toe.png" alt="tic_tac_toe.png" width="20%" />
+</p>
+<p><span class="figure-number">Figure 1: </span>An instance of the tic-tac-toe board where the X player has won since he managed to place three 'X' in a diagonal.</p>
+</div>
+
+
+<p>
+In your implementation the first screen that the user sees is the game
+board (there are no buttons or menus to start the game). The
+application should detect by itself when one of the two players wins
+and terminate the game with a message indicating the winner or that
+the result is a draw. For simplicity, the game can be played only
+once, i.e. there is no ``new game'' button which draws a new board. 
+</p>
+
+<p>
+The user X, starts first, while the computer (O) responds with a
+random move, i.e. it places an 'O' in a random cell which is not
+already occupied by another 'O' or an 'X'. 
+</p>
+
+<p>
+Below, you will find the full code for the application. Study the code
+and make sure that you understand it. Ask your tutor if something is
+unclear. 
+</p>
+
+<p>
+The main activity is the following. Notice that the layout is created
+programmatically using a custom view which is described next.
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #a020f0;">package</span> uk.ac.westminster.<span style="color: #008b8b;">tictactoe</span>;
+
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">androidx</span>.<span style="color: #008b8b;">appcompat</span>.<span style="color: #008b8b;">app</span>.<span style="color: #228b22;">AppCompatActivity</span>;
+
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">os</span>.<span style="color: #228b22;">Bundle</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">java</span>.<span style="color: #008b8b;">util</span>.<span style="color: #228b22;">Random</span>;
+
+
+<span style="color: #a020f0;">public</span> <span style="color: #a020f0;">class</span> <span style="color: #228b22;">TicTacToe</span> <span style="color: #a020f0;">extends</span> <span style="color: #228b22;">AppCompatActivity</span> {
+    <span style="color: #228b22;">char</span> <span style="color: #a0522d;">puzzle</span>[][] = <span style="color: #a020f0;">new</span> <span style="color: #228b22;">char</span>[3][3];
+    <span style="color: #228b22;">Random</span> <span style="color: #a0522d;">generator</span> = <span style="color: #a020f0;">new</span> <span style="color: #228b22;">Random</span>();
+
+    <span style="color: #8b2252;">/**</span>
+<span style="color: #8b2252;">     * Called when the activity is first created.</span>
+<span style="color: #8b2252;">     */</span>
+    <span style="color: #008b8b;">@Override</span>
+    <span style="color: #a020f0;">public</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">onCreate</span>(<span style="color: #228b22;">Bundle</span> <span style="color: #a0522d;">savedInstanceState</span>) {
+        <span style="color: #a020f0;">super</span>.onCreate(savedInstanceState);
+        setContentView(<span style="color: #a020f0;">new</span> <span style="color: #228b22;">BoardView</span>(<span style="color: #a020f0;">this</span>));
+    }
+
+
+    <span style="color: #228b22;">boolean</span> <span style="color: #0000ff;">isTileValid</span>(<span style="color: #228b22;">int</span> <span style="color: #a0522d;">x</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">y</span>) {
+        <span style="color: #a020f0;">if</span> (puzzle[x][y] != <span style="color: #8b2252;">'X'</span> &amp;&amp; puzzle[x][y] != <span style="color: #8b2252;">'O'</span>) {
+            <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">true</span>;
+        } <span style="color: #a020f0;">else</span>
+            <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">false</span>;
+    }
+
+
+    <span style="color: #228b22;">void</span> <span style="color: #0000ff;">setTile</span>(<span style="color: #228b22;">int</span> <span style="color: #a0522d;">x</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">y</span>, <span style="color: #228b22;">char</span> <span style="color: #a0522d;">value</span>) {
+        puzzle[x][y] = value;
+    }
+
+
+    <span style="color: #228b22;">String</span> <span style="color: #0000ff;">getTile</span>(<span style="color: #228b22;">int</span> <span style="color: #a0522d;">x</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">y</span>) {
+        <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">""</span> + puzzle[x][y];
+    }
+
+
+    <span style="color: #228b22;">boolean</span> <span style="color: #0000ff;">isBoardFull</span>() {
+        <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span> = 0; i &lt; 3; i++)
+            <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">j</span> = 0; j &lt; 3; j++) {
+                <span style="color: #a020f0;">if</span> (puzzle[i][j] != <span style="color: #8b2252;">'X'</span> &amp;&amp; puzzle[i][j] != <span style="color: #8b2252;">'O'</span>)
+                    <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">false</span>;
+            }
+
+        <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">true</span>;
+    }
+
+
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">Check if 'O' or 'X' has won and return the corresponding character</span>
+<span style="color: #b22222;">     * or blank if still on play</span><span style="color: #b22222;"> */</span>
+    <span style="color: #228b22;">char</span> <span style="color: #0000ff;">checkForWin</span>() {
+        <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span> = 0; i &lt; 3; i++) {
+            <span style="color: #b22222;">// </span><span style="color: #b22222;">check columns</span>
+            <span style="color: #228b22;">char</span> <span style="color: #a0522d;">c</span> = puzzle[i][0];
+            <span style="color: #a020f0;">if</span> (puzzle[i][1] == c &amp;&amp; puzzle[i][2] == c)
+                <span style="color: #a020f0;">return</span> c;
+            <span style="color: #b22222;">// </span><span style="color: #b22222;">check rows</span>
+            c = puzzle[0][i];
+            <span style="color: #a020f0;">if</span> (puzzle[1][i] == c &amp;&amp; puzzle[2][i] == c)
+                <span style="color: #a020f0;">return</span> c;
+        }
+
+        <span style="color: #b22222;">// </span><span style="color: #b22222;">check diagonals</span>
+        <span style="color: #228b22;">char</span> <span style="color: #a0522d;">c</span> = puzzle[0][0];
+        <span style="color: #a020f0;">if</span> (puzzle[1][1] == c &amp;&amp; puzzle[2][2] == c)
+            <span style="color: #a020f0;">return</span> c;
+        c = puzzle[0][2];
+        <span style="color: #a020f0;">if</span> (puzzle[1][1] == c &amp;&amp; puzzle[2][0] == c)
+            <span style="color: #a020f0;">return</span> c;
+
+        <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">' '</span>;
+    }
+
+
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">calculate machine (O) response to X player move</span>
+    <span style="color: #228b22;">void</span> <span style="color: #0000ff;">machineResponse</span>() {
+        <span style="color: #a020f0;">if</span> (isBoardFull())
+            <span style="color: #a020f0;">return</span>;
+        <span style="color: #b22222;">// </span><span style="color: #b22222;">find a random valid position</span>
+        <span style="color: #228b22;">int</span> <span style="color: #a0522d;">x</span> = -1;
+        <span style="color: #228b22;">int</span> <span style="color: #a0522d;">y</span> = -1;
+
+        <span style="color: #a020f0;">while</span> ((x == -1 &amp;&amp; y == -1) || !isTileValid(x, y)) {
+            x = generator.nextInt(3);
+            y = generator.nextInt(3);
+        }
+
+        setTile(x, y, <span style="color: #8b2252;">'O'</span>);
+    }
+}
+</pre>
+</div>
+
+<p>
+The custom view should be created in a separate class (and file) as
+the following:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #a020f0;">package</span> uk.ac.westminster.<span style="color: #008b8b;">tictactoe</span>;
+
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">content</span>.<span style="color: #228b22;">Context</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">graphics</span>.<span style="color: #228b22;">Canvas</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">graphics</span>.<span style="color: #228b22;">Paint</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">graphics</span>.<span style="color: #008b8b;">Paint</span>.<span style="color: #228b22;">FontMetrics</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">graphics</span>.<span style="color: #008b8b;">Paint</span>.<span style="color: #228b22;">Style</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">graphics</span>.<span style="color: #228b22;">Rect</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">view</span>.<span style="color: #228b22;">KeyEvent</span>;
+<span style="color: #a020f0;">import</span> <span style="color: #008b8b;">android</span>.<span style="color: #008b8b;">view</span>.<span style="color: #228b22;">View</span>;
+
+<span style="color: #a020f0;">public</span> <span style="color: #a020f0;">class</span> <span style="color: #228b22;">BoardView</span> <span style="color: #a020f0;">extends</span> <span style="color: #228b22;">View</span> {
+    <span style="color: #a020f0;">private</span> <span style="color: #228b22;">TicTacToe</span> <span style="color: #a0522d;">game</span>;
+    <span style="color: #a020f0;">private</span> <span style="color: #228b22;">float</span> <span style="color: #a0522d;">width</span>; <span style="color: #b22222;">// </span><span style="color: #b22222;">width of one tile</span>
+    <span style="color: #a020f0;">private</span> <span style="color: #228b22;">float</span> <span style="color: #a0522d;">height</span>; <span style="color: #b22222;">// </span><span style="color: #b22222;">height of one tile</span>
+    <span style="color: #a020f0;">private</span> <span style="color: #228b22;">float</span> <span style="color: #a0522d;">left_offset</span>; <span style="color: #b22222;">// </span><span style="color: #b22222;">offset from left where grid starts</span>
+    <span style="color: #a020f0;">private</span> <span style="color: #228b22;">float</span> <span style="color: #a0522d;">top_offset</span>; <span style="color: #b22222;">// </span><span style="color: #b22222;">offset from top where grid starts</span>
+
+    <span style="color: #a020f0;">private</span> <span style="color: #228b22;">int</span> <span style="color: #a0522d;">selX</span>; <span style="color: #b22222;">// </span><span style="color: #b22222;">X index of selection</span>
+    <span style="color: #a020f0;">private</span> <span style="color: #228b22;">int</span> <span style="color: #a0522d;">selY</span>; <span style="color: #b22222;">// </span><span style="color: #b22222;">Y index of selection</span>
+    <span style="color: #a020f0;">private</span> <span style="color: #a020f0;">final</span> <span style="color: #228b22;">Rect</span> <span style="color: #a0522d;">selRect</span> = <span style="color: #a020f0;">new</span> <span style="color: #228b22;">Rect</span>();
+    <span style="color: #228b22;">Paint</span> <span style="color: #a0522d;">foreground</span> = <span style="color: #a020f0;">new</span> <span style="color: #228b22;">Paint</span>(<span style="color: #008b8b;">Paint</span>.ANTI_ALIAS_FLAG);
+    <span style="color: #228b22;">boolean</span> <span style="color: #a0522d;">gameOver</span> = <span style="color: #008b8b;">false</span>;
+    <span style="color: #228b22;">char</span> <span style="color: #a0522d;">winner</span> = <span style="color: #8b2252;">' '</span>;  <span style="color: #b22222;">// </span><span style="color: #b22222;">the winner of the game</span>
+
+    <span style="color: #a020f0;">public</span> <span style="color: #0000ff;">BoardView</span>(<span style="color: #228b22;">Context</span> <span style="color: #a0522d;">context</span>) {
+        <span style="color: #a020f0;">super</span>(context);
+        <span style="color: #a020f0;">this</span>.game = (<span style="color: #228b22;">TicTacToe</span>) context;
+        setFocusable(<span style="color: #008b8b;">true</span>);
+        setFocusableInTouchMode(<span style="color: #008b8b;">true</span>);
+    }
+
+
+    <span style="color: #a020f0;">private</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">getRect</span>(<span style="color: #228b22;">int</span> <span style="color: #a0522d;">x</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">y</span>, <span style="color: #228b22;">Rect</span> <span style="color: #a0522d;">rect</span>) {
+        rect.set((<span style="color: #228b22;">int</span>) (x * width + left_offset),
+                (<span style="color: #228b22;">int</span>) (y * height + top_offset),
+                (<span style="color: #228b22;">int</span>) (x * width + width + left_offset),
+                (<span style="color: #228b22;">int</span>) (y * height + height + top_offset));
+    }
+
+
+    <span style="color: #a020f0;">protected</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">onSizeChanged</span>(<span style="color: #228b22;">int</span> <span style="color: #a0522d;">w</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">h</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">oldw</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">oldh</span>) {
+        width = w / 9f;
+        height = h / 9f;
+        left_offset = 3 * width;
+        top_offset = 3 * height;
+        getRect(selX, selY, selRect);
+        <span style="color: #a020f0;">super</span>.onSizeChanged(w, h, oldw, oldh);
+    }
+
+
+    <span style="color: #a020f0;">protected</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">onDraw</span>(<span style="color: #228b22;">Canvas</span> <span style="color: #a0522d;">canvas</span>) {
+        <span style="color: #b22222;">// </span><span style="color: #b22222;">Draw the background...</span>
+        <span style="color: #228b22;">Paint</span> <span style="color: #a0522d;">background</span> = <span style="color: #a020f0;">new</span> <span style="color: #228b22;">Paint</span>();
+        background.setColor(getResources().getColor(
+                R.color.puzzle_background));
+        canvas.drawRect(0, 0, getWidth(), getHeight(),
+                background);
+
+        <span style="color: #b22222;">// </span><span style="color: #b22222;">Define colors for the grid lines</span>
+        <span style="color: #228b22;">Paint</span> <span style="color: #a0522d;">dark</span> = <span style="color: #a020f0;">new</span> <span style="color: #228b22;">Paint</span>();
+        dark.setColor(getResources().getColor(R.color.puzzle_dark));
+
+        <span style="color: #b22222;">// </span><span style="color: #b22222;">draw the grid</span>
+        <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span> = 0; i &lt; 4; i++) {
+            canvas.drawLine(left_offset, i * height + top_offset,
+                    getWidth() - left_offset, i * height + top_offset, dark);
+            canvas.drawLine(i * width + left_offset, top_offset,
+                    i * width + left_offset, getHeight() - top_offset, dark);
+        }
+
+        <span style="color: #b22222;">// </span><span style="color: #b22222;">draw the selection</span>
+        <span style="color: #228b22;">Paint</span> <span style="color: #a0522d;">selected</span> = <span style="color: #a020f0;">new</span> <span style="color: #228b22;">Paint</span>();
+        selected.setColor(getResources().getColor(
+                R.color.puzzle_selected));
+        canvas.drawRect(selRect, selected);
+
+        <span style="color: #b22222;">// </span><span style="color: #b22222;">draw filled positions</span>
+        foreground.setColor(getResources().getColor(
+                R.color.puzzle_foreground));
+        foreground.setStyle(<span style="color: #008b8b;">Style</span>.FILL);
+        foreground.setTextSize(height * 0.75f);
+        foreground.setTextScaleX(width / height);
+        foreground.setTextAlign(<span style="color: #008b8b;">Paint</span>.<span style="color: #008b8b;">Align</span>.CENTER);
+        <span style="color: #b22222;">// </span><span style="color: #b22222;">Draw the number in the center of the tile</span>
+        <span style="color: #228b22;">FontMetrics</span> <span style="color: #a0522d;">fm</span> = foreground.getFontMetrics();
+        <span style="color: #b22222;">// </span><span style="color: #b22222;">Centering in X: use alignment (and X at midpoint)</span>
+        <span style="color: #228b22;">float</span> <span style="color: #a0522d;">x</span> = width / 2;
+        <span style="color: #b22222;">// </span><span style="color: #b22222;">Centering in Y: measure ascent/descent first</span>
+        <span style="color: #228b22;">float</span> <span style="color: #a0522d;">y</span> = height / 2 - (fm.ascent + fm.descent) / 2;
+
+        <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span> = 0; i &lt; 3; i++)
+            <span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">j</span> = 0; j &lt; 3; j++) {
+                canvas.drawText(game.getTile(i, j),
+                        i * width + x + left_offset,
+                        j * height + y + top_offset, foreground);
+            }
+
+        <span style="color: #b22222;">//</span><span style="color: #b22222;">char winner = game.checkForWin();</span>
+        <span style="color: #a020f0;">if</span> (winner == <span style="color: #8b2252;">'X'</span>) {
+            canvas.drawText(<span style="color: #8b2252;">"You Won!!!"</span>, 2 * width + left_offset, 2 * height + 2 * top_offset, foreground);
+            gameOver = <span style="color: #008b8b;">true</span>;
+        } <span style="color: #a020f0;">else</span> <span style="color: #a020f0;">if</span> (winner == <span style="color: #8b2252;">'O'</span>) {
+            canvas.drawText(<span style="color: #8b2252;">"I Won!!!"</span>, 2 * width + left_offset,
+                    2 * height + 2 * top_offset, foreground);
+            gameOver = <span style="color: #008b8b;">true</span>;
+        }
+    }
+
+    <span style="color: #a020f0;">public</span> <span style="color: #228b22;">boolean</span> <span style="color: #0000ff;">onKeyDown</span>(<span style="color: #228b22;">int</span> <span style="color: #a0522d;">keyCode</span>, <span style="color: #228b22;">KeyEvent</span> <span style="color: #a0522d;">event</span>) {
+        <span style="color: #a020f0;">if</span> (gameOver)
+            <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">false</span>;
+
+        <span style="color: #a020f0;">switch</span> (keyCode) {
+            <span style="color: #a020f0;">case</span> <span style="color: #008b8b;">KeyEvent</span>.KEYCODE_DPAD_UP:
+                select(selX, selY - 1);
+                <span style="color: #a020f0;">break</span>;
+            <span style="color: #a020f0;">case</span> <span style="color: #008b8b;">KeyEvent</span>.KEYCODE_DPAD_DOWN:
+                select(selX, selY + 1);
+                <span style="color: #a020f0;">break</span>;
+            <span style="color: #a020f0;">case</span> <span style="color: #008b8b;">KeyEvent</span>.KEYCODE_DPAD_LEFT:
+                select(selX - 1, selY);
+                <span style="color: #a020f0;">break</span>;
+            <span style="color: #a020f0;">case</span> <span style="color: #008b8b;">KeyEvent</span>.KEYCODE_DPAD_RIGHT:
+                select(selX + 1, selY);
+                <span style="color: #a020f0;">break</span>;
+            <span style="color: #a020f0;">case</span> <span style="color: #008b8b;">KeyEvent</span>.KEYCODE_ENTER:
+            <span style="color: #a020f0;">case</span> <span style="color: #008b8b;">KeyEvent</span>.KEYCODE_DPAD_CENTER:
+                setSelectedTile();
+                <span style="color: #a020f0;">break</span>;
+            <span style="color: #a020f0;">default</span>:
+                <span style="color: #a020f0;">return</span> <span style="color: #a020f0;">super</span>.onKeyDown(keyCode, event);
+        }
+        <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">true</span>;
+    }
+
+    <span style="color: #a020f0;">private</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">select</span>(<span style="color: #228b22;">int</span> <span style="color: #a0522d;">x</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">y</span>) {
+        invalidate(selRect);
+        selX = Math.min(Math.max(x, 0), 2);
+        selY = Math.min(Math.max(y, 0), 2);
+        getRect(selX, selY, selRect);
+        invalidate(selRect);
+    }
+
+    <span style="color: #a020f0;">public</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">setSelectedTile</span>() {
+        <span style="color: #a020f0;">if</span> (game.isTileValid(selX, selY)) {
+            game.setTile(selX, selY, <span style="color: #8b2252;">'X'</span>);
+            winner = game.checkForWin();
+            <span style="color: #a020f0;">if</span> (winner != <span style="color: #8b2252;">'X'</span>) {
+                game.machineResponse();
+                winner = game.checkForWin();
+            }
+            invalidate();
+        }
+    }
+}
+</pre>
+</div>
+
+<p>
+The <code>strings.xml</code> file:
+</p>
+<div class="org-src-container">
+<pre class="src src-xml">&lt;<span style="color: #0000ff;">resources</span>&gt;
+    &lt;<span style="color: #0000ff;">string</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"app_name"</span>&gt;TicTacToe&lt;/<span style="color: #0000ff;">string</span>&gt;
+    &lt;<span style="color: #0000ff;">string</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"hello"</span>&gt;Hello World, TicTacToe!&lt;/<span style="color: #0000ff;">string</span>&gt;
+&lt;/<span style="color: #0000ff;">resources</span>&gt;
+</pre>
+</div>
+
+<p>
+The <code>colors.xml</code> file:
+</p>
+<div class="org-src-container">
+<pre class="src src-xml">&lt;?<span style="color: #a020f0;">xml</span> <span style="color: #8b2252;">version="1.0" encoding="utf-8"</span>?&gt;
+&lt;<span style="color: #0000ff;">resources</span>&gt;
+    &lt;<span style="color: #0000ff;">color</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"colorPrimary"</span>&gt;#6200EE&lt;/<span style="color: #0000ff;">color</span>&gt;
+    &lt;<span style="color: #0000ff;">color</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"colorPrimaryDark"</span>&gt;#3700B3&lt;/<span style="color: #0000ff;">color</span>&gt;
+    &lt;<span style="color: #0000ff;">color</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"colorAccent"</span>&gt;#03DAC5&lt;/<span style="color: #0000ff;">color</span>&gt;
+    &lt;<span style="color: #0000ff;">color</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"puzzle_background"</span>&gt;#ffe6f0ff&lt;/<span style="color: #0000ff;">color</span>&gt;
+    &lt;<span style="color: #0000ff;">color</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"puzzle_dark"</span>&gt;#6456648f&lt;/<span style="color: #0000ff;">color</span>&gt;
+    &lt;<span style="color: #0000ff;">color</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"puzzle_foreground"</span>&gt;#ff000000&lt;/<span style="color: #0000ff;">color</span>&gt;
+    &lt;<span style="color: #0000ff;">color</span> <span style="color: #a0522d;">name</span>=<span style="color: #8b2252;">"puzzle_selected"</span>&gt;#64ff8000&lt;/<span style="color: #0000ff;">color</span>&gt;
+&lt;/<span style="color: #0000ff;">resources</span>&gt;
+</pre>
+</div>
+
+<p>
+You can play the game by moving to the desired cell and pressing the
+<code>ENTER</code> button. Make sure that you understand fully the code.
+</p>
+
+<p>
+b) Modify the code so that the computer plays in an intelligent way,
+i.e. first it checks if it can win by placing an 'O' in a cell, if not
+it checks if it can obstruct a human win by placing an 'O' in a cell,
+otherwise it places an 'O' in a cell so as to create an opportunity to
+win in the next move (i.e. it places an 'O' in a cell so as to form
+two 'O's in a row, column or diagonal.
+</p>
+
+<p>
+c) Modify the application so that it displays on the top of the
+activity how many wins in total the human has and how many the
+computer has since the beginning of first using the application. 
+</p>
+
+<p>
+<i>Hint:</i> Use <code>SharedPreferences</code> to save the number of wins for the two
+opponents. 
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
