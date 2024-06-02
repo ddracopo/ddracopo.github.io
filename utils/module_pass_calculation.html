@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h3>Calculate whether you Pass a UG Module - University of Westminster - School of Computer Science and Engineering</h3>
+(Applicable for modules with 2 assessments with equal weight and minimum component mark 30%)  
+
+<p>  
+<b>Assessment 1 mark:</b> <input type="text" id="assessment1" value="0">
+<p>
+Submitted: <p>
+<input type="radio" id="on_time" name="time" value="on_time">
+<label for="on_time">Before the deadline</label><br>
+<input type="radio" id="late24" name="time" value="late24">
+<label for="late24">Late less than 24 hours</label><br>
+<input type="radio" id="late" name="time" value="late">
+<label for="late">Late more than 24 hours</label>
+
+<p><p><p>
+
+<b>Assessment 2 mark:</b> <input type="text" id="assessment2" value="0">
+<p>
+Submitted: <p>
+<input type="radio" id="on_time2" name="time2" value="on_time">
+<label for="on_time2">Before the deadline</label><br>
+<input type="radio" id="late242" name="time2" value="late24">
+<label for="late242">Late less than 24 hours</label><br>
+<input type="radio" id="late2" name="time2" value="late">
+<label for="late2">Late more than 24 hours</label>
+
+<p></p>
+<button onclick="myCalculate()">Calculate</button>
+
+<p id="result">Outcome:</p>
+
+
+<script>
+function myCalculate() {
+    var x = parseInt(document.getElementById("assessment1").value);
+    
+    var elements = document.getElementsByName("time");
+    var late1
+    for (i=0; i<elements.length; i++) {
+        if (elements[i].checked)
+	    late1 = elements[i].value
+    }
+
+    if (late1 == "late24") {
+	if (x >= 50)
+            x = x - 10
+	else if (x >= 41 && x <= 49)
+	    x = 40
+    }
+    else if (late1 == "late")
+	x = 0
+
+    var y = parseInt(document.getElementById("assessment2").value);
+
+    elements = document.getElementsByName("time2");
+    var late2
+    for (i=0; i<elements.length; i++) {
+        if (elements[i].checked)
+	    late2 = elements[i].value
+    }
+
+    if (late2 == "late24") {
+	if (y >= 50)
+            y = y - 10
+	else if (y >= 41 && y <= 49)
+	    y =40
+    }
+    else if (late2 == "late")
+	y = 0
+
+    if (late1 == undefined || late2 == undefined)
+	window.alert("You need to select both of the submission times")
+    else {
+    var mark = Math.floor((x + y) /2)
+    var message = " " + x + " " + y + mark
+    
+    if (mark >= 40) {
+	    if (x >= 30 && y >= 30) {
+                message = "You passed the module. <b>Mark: " + mark + "</b> (Assessement 1: " + x + "%, Assessment 2: " + y + "%) <p>"
+	        message += "<b>It is NOT possible to improve your mark by resubmitting/retaking any of the components. Such submissions will be ignored.</b>"
+	    }
+            else {
+                message = "You failed the module. <p>Assessement 1: " + x + "%, Assessment 2: " + y + "% <p>"
+	        if (x < 30) {
+                    message += "You need to resubmit in the July referral period: <b>Assessment 1</b> "
+	            if (y < 30)
+		        message += "<b>AND Assessment 2</b>" 
+	        }
+	        else if (y < 30)
+	            message += "You need to resubmit in the July referral period: <b>Assessment 2</b>"
+            }
+    }
+    else {
+	message = "You failed the module. <p>Assessement 1: " + x + "%, Assessment 2: " + y + "% <p>"
+	if (x < 40) {
+            message += "You need to resubmit in the July referral period: <b>Assessment 1</b> "
+	    if (y < 40)
+	        message += "<b>AND Assessment 2</b>" 
+	}
+	else if (y < 40)
+	     message += "You need to resubmit in the July referral period: <b>Assessment 2</b>"
+    }
+    
+	document.getElementById("result").innerHTML = message;
+    }
+}
+</script>
+<hr>
+<p>Written by Dimitris C. Dracopoulos</p>
+<p>Last modified: Sun Jun 10:06:49 UTC 2024 by Dimitris Dracopoulos</p>
+</body>
+</html>
+<!-- Local Variables: -->
+<!-- time-stamp-pattern: "-8/<p>Last modified:[ \t]+%3a %3b %02H:%02M:%02S %Z %:y by %U</p>" -->
+<!-- time-stamp-time-zone: "UTC" -->
+<!-- End: -->
